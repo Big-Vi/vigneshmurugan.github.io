@@ -1,0 +1,62 @@
+baseURL = 'https://vigneshmurugan.cloud'
+languageCode = 'en-us'
+title = "Vignesh's Blog"
+
+theme = "hugo-ficurinia"
+
+author = "Vignesh Murugan"
+copyright = "Vignesh Murugan"
+
+paginate = 5
+summaryLength = 30
+
+[params]
+    description = "Vignesh Murugan's blog about programming and other cool stuff"
+    author = "Vignesh Murugan"
+    dateFormat = "02-Jan-2006"
+    logo = "/logo.svg"
+    favicon = "/favicon.png"
+    faviconIco = "/favicon.ico"
+    appletouch = "/apple-touch-icon.png"
+    svgicon = "/logo.svg"
+    icon512 = "/android-chrome-512x512.png"
+
+    imageInArticlePreview = true
+
+    showRss = false
+
+    enableShareOnFediverse = true
+
+    enableRelatedArticles = true
+    relatedArticlesNum = 2
+    forceRedirect = true
+
+[markup]
+    [markup.highlight]
+        codeFences = true
+        guessSyntax = true
+        lineNos = false
+        lineNumbersInTable = false
+        tabWidth = 4
+        style = "dracula"
+    [markup.tableOfContents]
+        endLevel = 5
+        ordered = false
+        startLevel = 1
+
+[menu]
+    [[menu.main]]
+        identifier = "about"
+        name = "About"
+        url = "/about"
+        weight = 99
+    [[menu.icons]]
+        identifier = "linkedin"
+        name = "LinkedIn"
+        url = "https://www.linkedin.com/in/vigneshmurugan"
+        weight = 10
+    [[menu.icons]]
+        identifier = "github"
+        name = "Github"
+        url = "https://github.com/big-vi"
+        weight = 10
