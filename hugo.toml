@@ -7,7 +7,7 @@ theme = "hugo-ficurinia"
 author = "Vignesh Murugan"
 copyright = "Vignesh Murugan"
 
-paginate = 5
+pagination = { pagerSize = 5 }
 summaryLength = 30
 
 [params]
