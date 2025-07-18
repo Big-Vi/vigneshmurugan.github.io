@@ -1,12 +1,10 @@
 ---
 title: "Installing K3s & Cilium for a Lightweight Kubernetes Cluster"
-date: 2025-07-18T00:00:00Z
+date: 2025-07-01T00:00:00Z
 draft: false
 ---
 
-## Introduction
-
-This is a continuation of my previous post on [Kubernetes Raspberry Pi Setup](/posts/kubernetes_raspberry_pi_setup/). In this guide, we'll walk through setting up a lightweight Kubernetes cluster using K3s and leveraging Cilium for powerful networking and security. This setup builds upon the Raspberry Pi cluster foundation covered in the previous post, showcasing how this combination is ideal for resource-constrained environments like home labs, edge computing, and ARM-based devices.
+This is a continuation of my previous post on [Kubernetes Raspberry Pi Setup](/posts/kubernetes_raspberry_pi_setup/). In this guide, we'll walk through setting up a lightweight Kubernetes cluster using K3s and leveraging Cilium for powerful networking and security. This setup builds upon the Raspberry Pi cluster foundation covered in the previous post, showcasing how this combination is ideal for resource-constrained environments like home labs or edge computing.
 
 ### Why K3s?
 
@@ -15,8 +13,6 @@ K3s is a certified, lightweight Kubernetes distribution built for IoT and Edge c
 ### Why Cilium?
 
 Cilium provides networking, observability, and security for containerized workloads using eBPF (extended Berkeley Packet Filter) technology. By operating at the Linux kernel level, Cilium offers high performance and granular control over network policies without altering application code.
-
-This post also covers a practical use case: capturing packets with switch port mirroring to inspect Cilium's tunnel mode.
 
 
 ## K3s Installation
