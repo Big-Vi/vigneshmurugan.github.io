@@ -1,37 +1,46 @@
 ---
-title: "Shopify storefront API integration with existing site"
+title: "Integrating E-Commerce into Your Site with Shopify's Storefront API"
 slug: "shopify-storefront-api-integration-with-existing-site"
 date: 2022-02-22
+updated: 2025-07-19
 tags:
   - shopify
+  - headless-commerce
+  - api
 ---
 
-If you're thinking of adding e-commerce to your existing application, turn to Shopify as it's offering great developer-friendly features such as Storefront API & Admin API with GraphQL endpoint, Webhooks, and Shopify payment(available for limited countries).
+If you're looking to add e-commerce functionality to an existing website or application, Shopify offers a powerful and developer-friendly solution. With tools like the Storefront and Admin APIs (both with GraphQL endpoints), webhooks, and Shopify Payments, you can build a custom shopping experience without starting from scratch.
 
-If you're thinking of adding e-commerce to your existing application, turn to Shopify as it's offering great developer-friendly features such as Storefront API & Admin API with GraphQL endpoint, Webhooks, and Shopify payment(available for limited countries). 
+This approach, often called "headless commerce," allows you to use your existing frontend while Shopify handles the complex backend logic.
 
-- When working with Shopify Headless, you're merely displaying the products on the existing website, and Shopify does all the heavy lifting(Payment, Shipping, Discount, and so on).
-- Integrating with other external systems such as ERP, CRM or CMS is easy with Shopify.
-- Shopify created a GIT repo for various languages and frameworks to kick-start with.
+### Why Go Headless with Shopify?
 
-## Storefront API
+-   **Decoupled Architecture**: You maintain full control over your website's look and feel while Shopify manages payments, shipping, discounts, and inventory.
+-   **Seamless Integration**: Shopify is designed to connect with other business systems like ERPs, CRMs, or a CMS, making it a flexible hub for your commerce operations.
+-   **Developer Resources**: To accelerate development, Shopify provides official SDKs and starter kits for various languages and frameworks.
 
-Storefront API offers a GraphQL endpoint that enables developers to build headless e-commerce sites, and mobile apps & even sell products via video games([Shopify unity buy SDK](https://www.shopify.com/partners/blog/using-shopify-unity-buy-sdk)).
+## Understanding the Storefront API
 
-Storefront API is a public-facing API, as opposed to Admin API, which means requests to the Storefront API can be made from the client side.
+The **Storefront API** is the core of Shopify's headless offering. It provides a public-facing GraphQL endpoint that lets you fetch product data, create carts, and manage checkouts directly from your client-side application. This is what enables you to build custom e-commerce sites, mobile apps, or even integrate purchasing into video games using the [Shopify Unity Buy SDK](https://www.shopify.com/partners/blog/using-shopify-unity-buy-sdk).
 
-Request to the Admin API can be sent only via the back end of the app. Using Admin API, developers can read and write to products, inventory, orders, shipping & more.
+Because the Storefront API is public, requests can be safely made from a user's browser. This contrasts with the **Admin API**, which is designed for backend use only and provides read/write access to your store's data, including products, orders, and shipping details.
 
-## Shopify buy SDK
+## Using the Shopify Buy SDK
 
-"Buy SDK" is a wrapper around functionalities like fetching products, collections, line items, discounts, and so on. It basically initializes the GraphQL client with the query to make a request to Shopify with the credentials supplied.
+To simplify the integration process, Shopify provides the **Buy SDK**. This SDK acts as a wrapper around the Storefront API, providing convenient methods for common tasks like fetching products and collections, managing line items, and applying discounts. It essentially initializes a GraphQL client with the necessary credentials and queries, so you can focus on building your user interface.
 
-## Checkout process
+## The Checkout Process
 
-The checkout process starts with creating a Shopify cart session from your website which then creates Shopify checkout URL. Products can be added to the cart session.
+The headless checkout process is straightforward:
 
-The checkout URL takes the customers to the Shopify checkout page. 
+1.  Your application uses the Storefront API (or Buy SDK) to create a cart session and add products to it.
+2.  Shopify generates a unique checkout URL for that session.
+3.  When the customer is ready to pay, you redirect them to this URL.
 
-## Netsuite integration
+This takes the customer to Shopify's secure, PCI-compliant checkout page, where they can enter their payment and shipping information. Shopify handles the entire transaction, so you don't have to worry about processing sensitive financial data.
 
-As I mentioned above that integrating with the business system is a breeze with Shopify. In my organization, we use NetSuite ERP. So all the orders created in Shopify need to be pushed into NetSuite for the accounts team to handle. NetSuite sends an automatic invoice to the customer If they chose to pay their order manually and then sync the order status back to Shopify via GraphQL mutation.
+## Example: NetSuite Integration
+
+The ability to integrate with other business systems is a major advantage. In my organization, we use NetSuite as our ERP. When an order is placed through our Shopify-powered site, a webhook triggers a process that pushes the order details into NetSuite for our accounting team.
+
+Conversely, when the finance team marks an order as paid in NetSuite (for manual payments), an automated process uses a GraphQL mutation via the Admin API to sync the updated order status back to Shopify. This creates a seamless flow of information between our commerce platform and our core business system.

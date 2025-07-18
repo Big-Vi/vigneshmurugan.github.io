@@ -1,56 +1,66 @@
 ---
-title: "How to use ngrok - webhook integration"
+title: "Testing Webhooks Locally with Ngrok"
 slug: "how-to-use-ngrok-webhook-integration"
 date: 2022-03-12
+updated: 2025-07-19
 tags:
   - webhook
   - ngrok
 ---
 
-Ngrok allows you to expose your localhost via a secure tunnel to the internet. One of the features of Ngrok is testing the webhook payload in your local environment.
+When developing applications that consume webhooks, one common challenge is testing the integration on your local machine. Webhooks require a publicly accessible, SSL-certified URL to receive data from external services like Shopify, Sanity.io, or Mailchimp. This is where [Ngrok](https://ngrok.com) becomes an indispensable tool.
 
-## What is Ngrok?
+Ngrok creates a secure tunnel from the public internet directly to your `localhost`, allowing you to expose your local development server and test webhook payloads in real-time without deploying your application.
 
-[Ngrok](https://ngrok.com) allows you to expose your localhost via a secure tunnel to the internet. One of the features of Ngrok is testing the webhook payload in your local environment.
+## Step-by-Step Guide to Using Ngrok for Webhooks
 
-## What is a webhook?
+### 1. Install Ngrok
 
-Webhook is sending real-time information(as JSON or XML) to a specified URL(External system) whenever some event happens. It's more prevalent these days with the latest platforms such as Shopify, Sanity.io & Mailchimp.
-
-For security reasons, Webhook payloads are only exposed to SSL-certified URLs. This is where Ngrok comes into help.
-
-## How does it work?
-
-1 - Install Ngrok on your local machine. For Mac run the below command in your terminal:
+First, install Ngrok on your machine. If you're on a Mac, you can use Homebrew:
 
 ```shell
 brew install ngrok/ngrok/ngrok
 ```
+For other operating systems, please refer to the official [Ngrok installation guide](https://ngrok.com/download).
 
-2 - I suggest signing up for Ngrok so that account-only features can be used. 
+### 2. Authenticate Your Ngrok Account
+
+While not strictly required for basic use, signing up for a free Ngrok account and adding your authtoken provides access to more features, such as longer tunnel durations and custom subdomains.
 
 ```shell
-ngrok authtoken <token>
+ngrok authtoken <YOUR_AUTH_TOKEN>
 ```
 
-![image](https://cdn.sanity.io/images/bz8z0oa1/production/1f0dac2b38f6982dded78adab7140f9f4f5cc749-2890x1638.png?w=650)
+![Ngrok Dashboard](/images/ngrok-dashboard.png)
 
-3 - Start your Ngrok tunnel. 
+### 3. Start the Ngrok Tunnel
+
+With your local server running, start an Ngrok tunnel and point it to the port your application is listening on. For example, if your server is on port 3000, run:
 
 ```shell
 ngrok http 3000
 ```
 
-4 - Copy the secure URL from the terminal and paste it into the webhook URL field from which the payload comes. In my case, I'm testing it with Shopify.
+Ngrok will generate a unique, public HTTPS URL that forwards all traffic to your local port 3000.
 
-![image](https://cdn.sanity.io/images/bz8z0oa1/production/94edc111b69736cb2dfb2abfa4c841866bfd93c4-2918x1334.png?w=650)
+### 4. Configure Your Webhook Provider
 
-5 - Once the product from Shopify gets updated, it sends the payload to your specified Ngrok URL which tunnels the payload into your local environment.
+Copy the secure forwarding URL from your terminal and paste it into the webhook configuration field of the service you're testing (e.g., Shopify, Stripe, GitHub).
 
-![image](https://cdn.sanity.io/images/bz8z0oa1/production/7a2b0c7743022a3334a5ec0d478abe63bacf9b9f-1666x583.png?w=650)
+![Shopify Webhook Configuration](/images/shopify-webhook.png)
 
-6 - To inspect your payload, go to "http://127.0.0.1:4040/inspect/http" from your browser.
+### 5. Trigger and Receive the Webhook
 
-![image](https://cdn.sanity.io/images/bz8z0oa1/production/4789a78cec296e5c6db83744246d1b40221aa434-2916x1636.png?w=650)
+Once configured, trigger the event in the external service (e.g., update a product in Shopify). The service will send a webhook payload to your Ngrok URL, which will be securely tunneled to your local application.
 
-🎉 JSON payload can be mapped to your local database.
+![SSH Tunnel Local](/images/ngrok-ssh-tunnel.png)
+
+### 6. Inspect the Payload
+
+Ngrok provides a powerful web interface for inspecting all traffic. To see the details of incoming requests, including headers and the JSON payload, navigate to `http://127.0.0.1:4040` in your browser.
+
+![Ngrok Localhost](/images/ngrok-localhost.png)
+
+## Conclusion
+
+With the webhook payload successfully received and inspected, you can now confidently develop and debug your application's logic, mapping the incoming JSON data to your local database or other services. Ngrok simplifies the webhook development lifecycle, enabling rapid testing and iteration in your local environment.

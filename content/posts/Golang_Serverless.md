@@ -2,20 +2,29 @@
 title: "Using Golang, AWS Lambda serverless function, SNS & EventBridge for stock notification."
 slug: "using-golang-aws-lambda-serverless-function-sns-and-eventbridge-for-stock-notification"
 date: 2022-05-28
+updated: 2025-07-19
 tags:
   - golang
   - serverless
 ---
 
-Writing AWS Lambda serverless function handler in Go which gets triggered by EventBridge rule that runs on a schedule and sends an email notification if product stock drops a specific number.
+This guide explains how to write an AWS Lambda serverless function in Go that is triggered by an Amazon EventBridge rule on a schedule. The function checks product stock levels and sends an email notification if stock drops below a specified threshold.
 
 ## Overview
-Writing AWS Lambda serverless function handler in Go, which gets triggered by the EventBridge rule that runs on a schedule, and sends an email notification if product stock drops a specific number.
+We’ll use Go to implement a Lambda function that:
+- Is triggered by an EventBridge scheduled rule
+- Checks product inventory (e.g., from Shopify)
+- Sends email notifications when stock is low, using AWS SNS
 
 ## Lambda function in Go
-AWS [Go SDK](https://github.com/aws/aws-sdk-go) makes it easy to create the Lambda handler function and to send notifications using SNS.
 
-Set up Shopify environmental variables & fetch Products
+Using the AWS SDK for Go, you can easily create the Lambda handler and integrate with AWS SNS for email notifications.
+
+Before writing the function, be sure to:
+
+Set up required Shopify environment variables (e.g., API key, store URL)
+
+Fetch product inventory from the Shopify API
 
 ```go:main.go
 package main
@@ -208,14 +217,14 @@ func HandleRequest() {
 
 ## Prerequisites - AWS CLI & AWS Shell
 
-**AWS Command Line Interface(CLI)** is used in this post to deploy the Lambda function. CLI needs to be [installed](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and [configured](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) locally in order to use it.
+**AWS Command Line Interface(CLI)** is used to deploy the Lambda function. CLI needs to be [installed](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and [configured](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) locally in order to use it.
 
-**[AWS Shell](https://github.com/awslabs/aws-shell)** helps with auto-completion, fuzzy searching, and more.
+**[AWS Shell](https://github.com/awslabs/aws-shell)** provides helpful features like auto-completion and fuzzy searching to enhance your CLI experience.
 
 
 ## How to deploy it on AWS
 
-We're uploading the Go binary file into AWS Lambda as a .zip file. In order to [build for Linux](https://github.com/aws/aws-lambda-go/blob/main/README.md#building-your-function), we're using the following command. 
+We'll upload the Go binary to AWS Lambda as a .zip file. In order to [build for Linux](https://github.com/aws/aws-lambda-go/blob/main/README.md#building-your-function), we're using the following command. 
 
 ```bash
 GOOS=linux GOARCH=amd64 go build -o main main.go

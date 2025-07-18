@@ -1,54 +1,46 @@
 ---
-title: "How i passed AWS Certified Developer exam"
+title: "How I Passed the AWS Certified Developer Exam"
 slug: "how-i-passed-aws-certified-developer-exam"
 date: 2022-07-31
+updated: 2025-07-19
 tags:
   - aws-certification
   - devops
 ---
 
-AWS recommends taking the AWS Certified Developer - Associate exam for someone who has one or more years of hands-on experience. In my opinion, it totally depends on how well an individual prepare for the exam.
+While AWS recommends the Certified Developer - Associate exam for those with at least a year of hands-on experience, I believe success depends more on dedicated preparation. I decided to pursue this certification not just for the accreditation but for the structured learning path it provides.
 
-AWS recommends taking the AWS Certified Developer - Associate exam for someone who has one or more years of hands-on experience. In my opinion, it totally depends on how well an individual prepare for the exam. 
+Even without prior AWS knowledge, I was able to pass by dedicating a consistent amount of time each day over three to six months. This post outlines the resources I used and the lessons I learned along the way.
 
-In my case, I spent 3-6 months on this exam. but I allocated a considerable amount of time every day since I don't have any prior knowledge of AWS.
+## My Study Strategy and Resources
 
-The reason I wanted to take this exam is not only to get accredited by AWS but also because it provides structured learning.
+A quick search for "how to prepare for the certified developer exam" will yield countless resources. After some research, I settled on a core set of materials that proved invaluable.
 
-## Below are my tips and what resources I've used:
+### Key Resources:
 
-I bet you can find plenty of resources online when you google "How to prepare for the certified developer exam". I did the same thing and stumbled upon the Udemy course from Stephane Maarek.
+-   **Udemy Course**: [Ultimate AWS Certified Developer Associate](https://www.udemy.com/course/aws-certified-developer-associate-dva-c01/) by Stephane Maarek. This was my primary learning resource.
+-   **Practice Exams**: [Practice Exams for DVA-C01](https://www.udemy.com/course/aws-certified-developer-associate-practice-tests-dva-c01/) also by Stephane Maarek.
+-   **Official AWS Documentation**: Essential for deep dives into specific services.
+-   **Hands-on Labs**: Applying theoretical knowledge in the AWS console is crucial.
 
-### Main resources:
+## The Importance of Practice Exams
 
-- [Udemy course](https://www.udemy.com/course/aws-certified-developer-associate-dva-c01/) from Stephane Maarek
-- [Practice exam](https://www.udemy.com/course/aws-certified-developer-associate-practice-tests-dva-c01/) from Stephane Maarek
-- AWS documentation site
-- AWS sample practice exam
-- Hands-on exercise
+The AWS Developer exam covers a vast number of topics, and retaining all that information is a major challenge. The single most effective way I found to solidify my knowledge was by taking practice exams repeatedly. The Udemy course I used included six full practice tests that were critical for simulating real exam scenarios.
 
+> **My Exam Tip:** Don't just take the tests. After each one, meticulously review every answer—both the ones you got right and the ones you got wrong. The explanations often include links to the official AWS documentation, which are perfect for filling knowledge gaps. Identify your weak areas and study the relevant docs before attempting the next practice test.
 
-### Practice exam
+## Tips for Taking the Online Exam
 
-There're so many topics that the exam covers and you need to be able to retain all those information. The only way to do this is via doing practice exams. The above shared Udemy course contains 6 practice exams which hugely helped me to recall my learnings and get real exam scenarios.
+You can take the exam either in person or online through services like PSI or Pearson VUE. With no testing centers in my location, I opted for an online exam with PSI.
 
-Reviewing your answers at the end of the test would help to fill your knowledge gap since it comes with AWS doc reference links that you can go to for further readings.
+A crucial lesson I learned was to prepare your testing environment well in advance. The proctoring software is sensitive and will flag applications like VPNs, virtualization tools (VMware), or device management clients (JumpCloud).
 
-> Tip: Take the exam and review your wrong & right answers. Find areas where you lack knowledge & spend some time on AWS docs before you proceed to take another exam.
+I learned this the hard way. I had planned to use my work computer and had run the pre-exam system check without any issues. However, on exam day, the PSI Bridge software required me to shut down the JumpCloud agent. As I didn't have admin permissions to do so, I had to quickly switch to an old personal laptop, which added unnecessary stress right before the exam.
 
+> **My Logistics Tip:** A week before your exam, decide which computer you will use. Run the official system compatibility check and, more importantly, do a full practice run by closing any background applications that might be flagged by the proctoring software. A smooth start on exam day makes a world of difference.
 
-### Things to consider for the exam
+## Final Thoughts
 
-There is a number of ways to sit for this exam, in-person or online(PSI & Pearson Vue). I would have preferred in-person exams but AWS does not have any centers in my location. So I ended up sitting for an online exam via PSI.
+While preparing for any certification can be stressful, I highly recommend the AWS Certified Developer exam. It provides a clear roadmap for learning and significantly broadens your practical knowledge of AWS services.
 
-Decide on which computer you're going to use and run the compatibility system check provided by PSI and if you have any software running on your machine like VMware, VPN, or JumpCloud, PSI would suggest you stop those processes from your computer before it lets you in. 
-
-I had a bit of panic before my exam. I decided to use my work computer and did the system check and everything. But on the exam day, PSI Bridge software prompted me to stop JumpCloud software from my computer. Since this is my work computer, I don't have admin permission to close that particular software. So I ended up using my old windows computer which I haven't used for ages.
-
-> Tip: You can stop these programs beforehand if you want to have a smooth online exam experience.
-
-### Final note
-
-Even though the exams stress out some people, I would suggest sitting for this exam. It would broaden your skills and knowledge of AWS as a developer. 
-
-It enabled me to implement my knowledge at work confidently and I like to share my [AWS Badge](https://www.credly.com/badges/b0051c96-1c01-4ac3-a2a6-49400454c7a7/public_url) here.
+For me, the process was transformative. It gave me the confidence to implement solutions at work more effectively and speak about AWS architecture with authority. As a small token of that accomplishment, I'm proud to share my [AWS Badge here](https://www.credly.com/badges/b0051c96-1c01-4ac3-a2a6-49400454c7a7/public_url).
