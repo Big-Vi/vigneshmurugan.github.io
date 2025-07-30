@@ -2,7 +2,20 @@
     <hr />
     {{- partial "inject/footer.html" . -}}
     {{- partial "footer_columns.html" . -}}
-    <p><small>
-        {{ now.Format "2006" }} &copy; {{ .Site.Copyright | markdownify }}
-    </small></p>
+    <div class="footerContainer">
+        <p><small>
+            {{ now.Format "2006" }} &copy; {{ .Site.Copyright | markdownify }}
+         </small></p>
+         <div id="links">
+             {{ if .Site.Params.showRss | default true }}
+                 {{- partial "iconlink" (dict "Identifier" "rss" "Name" "RSS" "URL" "/index.xml") -}}
+             {{ end }}
+             {{ range .Site.Params.links }}
+                 {{- partial "nerdlink" . -}}
+             {{ end }}
+             {{ range .Site.Menus.icons }}
+                 {{- partial "iconlink" . -}}
+             {{ end }}
+         </div>
+    </div>
 </footer>
