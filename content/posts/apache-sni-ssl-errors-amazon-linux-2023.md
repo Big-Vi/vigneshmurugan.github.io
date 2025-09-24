@@ -93,7 +93,7 @@ Review your SSL virtual host setup:
 
 ### Solution: Terminate SSL at Load Balancer
 
-This is the cleanest and most scalable approach.
+This is the cleanest and most scalable approach. Since AWS ALB terminates TLS, it does not preserve the SNI when forwarding traffic to the backend.
 
 **Benefits:**
 - No backend SSL configuration complexity
@@ -120,7 +120,23 @@ This is the cleanest and most scalable approach.
 </VirtualHost>
 ```
 
-4. **Update Security Groups** to allow port 80 from the load balancer security group. The load balancer has an HTTP (port 80) listener that automatically redirects traffic to HTTPS (port 443). The HTTPS listener forwards requests to a backend target group, where servers listen on port 80. Port 80 is not exposed directly to the internet; it is only accessible through the load balancer, ensuring secure and controlled access. 
+4. **Update Security Groups** to allow port 80 from the load balancer security group. The load balancer has an HTTP (port 80) listener that automatically redirects traffic to HTTPS (port 443). The HTTPS listener forwards requests to a backend target group, where servers listen on port 80. Port 80 is not exposed directly to the internet; it is only accessible through the load balancer, ensuring secure and controlled access.
+
+### Alternative Solution: NLB with TLS Passthrough
+
+If you require end-to-end SSL encryption or cannot terminate SSL at the load balancer, use Network Load Balancer (NLB) with TLS passthrough.
+
+**Benefits:**
+- Maintains end-to-end SSL encryption
+- No SSL certificate management at load balancer level
+- Preserves original client IP addresses
+- Avoids SNI hostname translation issues
+
+**When to Use:**
+- Compliance requirements mandate end-to-end encryption
+- Need to inspect SSL certificates at the application level
+- Using client certificate authentication
+- Custom SSL/TLS configurations required
 
 ## Health Check Best Practices
 
