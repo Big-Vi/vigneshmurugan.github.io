@@ -381,11 +381,11 @@ lambda invoke --function-name function-lambda-shopify-stock output.txt
 
 EventBridge rule let you create a cron that triggers the Lambda function.
 
-![image](https://cdn.sanity.io/images/bz8z0oa1/production/4667de87e806512057e23e7f117a5c93dca4ffd7-2386x1362.png?w=650)
+![image](/images/eventbridge-rule-2.png)
 
-![image](https://cdn.sanity.io/images/bz8z0oa1/production/be4327fe97398e6457ba3db5b6c669e7ed458a47-2238x1360.png?w=650)
+![image](/images/eventbridge-schedule.png)
 
-![image](https://cdn.sanity.io/images/bz8z0oa1/production/42366a61e629f40365366152206c6e103e194472-2234x1364.png?w=650)
+![image](/images/eventbridge-rule.png)
 
 
 

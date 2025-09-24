@@ -84,7 +84,7 @@ Notes:
               "startPeriod": 5
             },
             "environment": [
-              { "name": "RUST_LOG", "value": "info" }
+              { "name": "SERVER_LOG", "value": "info" }
             ],
             "logConfiguration": {
               "logDriver": "awslogs",

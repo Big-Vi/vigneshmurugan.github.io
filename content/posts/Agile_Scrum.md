@@ -43,9 +43,9 @@ While a simple notepad worked perfectly for my solo projects, collaborating with
 - **Collaborative planning** for upcoming work
 - **Historical data** to improve future estimates 
 
-![Jira Sprint Board Example](https://cdn.sanity.io/images/bz8z0oa1/production/9e60e77a74e24cc958e8ac4ffb6b69d9a4ff7f1a-3024x1686.png?w=650)
+![Jira Sprint Board Example](/images/agile-1.png)
 
-![Jira Backlog Management](https://cdn.sanity.io/images/bz8z0oa1/production/a05edcb9560d462b7783f8e076271469fc78b2f7-3024x1692.png?w=650)
+![Jira Backlog Management](/images/agile-2.png)
 
 ## Core Agile Concepts: MVP and Fail Fast
 
@@ -84,7 +84,7 @@ Jira promotes the **branch-per-task workflow**, where each feature or bug fix ge
 
 When you include the Jira issue number in branch names or commit messages, the integration automatically links your code to the corresponding issue.
 
-![Jira GitHub Integration](https://cdn.sanity.io/images/bz8z0oa1/production/4ab9df13eb2eb30d78aff3e40084e33d0415d536-1456x766.png?w=650)
+![Jira GitHub Integration](/images/agile-3.png)
 
 The [GitHub for Jira](https://marketplace.atlassian.com/apps/1219592/github-for-jira?tab=overview&hosting=cloud) app extension brings your development workflow directly into the Jira dashboard. You can see:
 
@@ -105,7 +105,7 @@ Jira's automation capabilities eliminate repetitive manual tasks and ensure cons
 - **Release Tracking**: Update issues to "Done" when code is merged to the main branch
 - **Sprint Management**: Automatically assign issues to the current sprint based on labels or components
 
-![Jira Automation Example](https://cdn.sanity.io/images/bz8z0oa1/production/610372998d98a8b09f1045710582c5fe26d9a93e-2860x1492.png?w=650)
+![Jira Automation Example](/images/agile-4.png)
 
 These automations not only save time but also ensure that your team follows consistent processes, reducing the chance of issues falling through the cracks.
 
