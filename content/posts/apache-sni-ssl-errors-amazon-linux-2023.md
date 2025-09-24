@@ -1,6 +1,6 @@
 ---
 title: "Fixing Apache SSL/SNI Errors After Amazon Linux 2023 Update: A Complete Troubleshooting Guide"
-date: 2025-01-27
+date: 2025-09-25
 tags: ["Apache", "SSL", "AWS", "DevOps", "Load Balancer", "SNI", "Amazon Linux"]
 categories: ["Infrastructure", "Troubleshooting"]
 draft: false
