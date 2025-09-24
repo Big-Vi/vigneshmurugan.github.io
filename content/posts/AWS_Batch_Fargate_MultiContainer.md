@@ -1,7 +1,8 @@
 ---
 title: "AWS Batch on Fargate: Single-Node, Multi-Container Jobs for Sidecar Pipelines"
 date: 2025-08-22T00:00:01Z
-draft: true
+draft: false
+summary: "This post shows how to run single-node, multi-container jobs on AWS Batch with Fargate, and why that’s powerful for sidecar-style data pipelines."
 tags: ['aws', 'batch', 'fargate', 'ecs', 'containers', 'serverless', 'data-pipeline', 'sidecar', 'orchestration']
 ---
 
