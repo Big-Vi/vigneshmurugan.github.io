@@ -91,9 +91,7 @@ Review your SSL virtual host setup:
 </VirtualHost>
 ```
 
-## Solution Approaches (Ranked by Recommendation)
-
-### Solution 1: Terminate SSL at Load Balancer (Recommended)
+### Solution: Terminate SSL at Load Balancer
 
 This is the cleanest and most scalable approach.
 
@@ -122,7 +120,7 @@ This is the cleanest and most scalable approach.
 </VirtualHost>
 ```
 
-4. **Update Security Groups** to allow port 80 from the load balancer
+4. **Update Security Groups** to allow port 80 from the load balancer security group. The load balancer has an HTTP (port 80) listener that automatically redirects traffic to HTTPS (port 443). The HTTPS listener forwards requests to a backend target group, where servers listen on port 80. Port 80 is not exposed directly to the internet; it is only accessible through the load balancer, ensuring secure and controlled access. 
 
 ## Health Check Best Practices
 
@@ -175,20 +173,6 @@ tail -f /var/log/httpd/access_log | grep health
 ### 4. Check Target Group Health
 Monitor your AWS Target Group to ensure instances are marked as healthy.
 
-## Security Considerations
-
-### Why This Change Was Made
-The stricter SNI validation addresses potential security issues where:
-- Clients could be served certificates for wrong domains
-- SSL/TLS connections could be misdirected
-- Certificate validation could be bypassed in certain configurations
-
-### Best Practices
-1. **Always use proper ServerName directives** in virtual hosts
-2. **Use valid certificates** that match your domain names
-3. **Avoid wildcard ServerAlias directives** that catch everything
-4. **Regularly update** your SSL certificates and Apache configuration
-
 
 ## Conclusion
 
@@ -198,7 +182,6 @@ The Amazon Linux 2023.8.20250908 update's stricter Apache SSL/SNI validation is 
 1. **SSL termination at the load balancer** is the most robust solution
 2. **Proper ServerName configuration** is crucial for all virtual hosts
 3. **HTTP health checks** simplify configuration and improve reliability
-4. **Regular testing** helps catch configuration issues before they impact users
 
 By following these practices, you'll not only resolve the immediate SSL/SNI issues but also build a more maintainable and secure infrastructure.
 
