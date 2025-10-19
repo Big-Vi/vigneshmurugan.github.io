@@ -21,7 +21,7 @@ I'm AWS Certified DevOps Engineer - Professional.
 
 ---
 
-[![GitHub stats](https://github-readme-stats.vercel.app/api?username=big-vi&show_icons=true&theme=dark)](https://github.com/big-vi/github-readme-stats)
+[![GitHub stats](https://github-readme-stats.vercel.app/api?username=ItsVigneshMurugan&show_icons=true&theme=dark)](https://github.com/ItsVigneshMurugan/github-readme-stats)
 
 ---
 
