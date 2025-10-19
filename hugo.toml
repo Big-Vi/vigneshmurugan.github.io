@@ -10,6 +10,10 @@ copyright = "Vignesh Murugan"
 pagination = { pagerSize = 5 }
 summaryLength = 30
 
+[caches]
+  [caches.images]
+    dir = ":cacheDir/:project"
+
 [params]
     description = "Vignesh Murugan's blog about programming and other cool stuff"
     author = "Vignesh Murugan"
